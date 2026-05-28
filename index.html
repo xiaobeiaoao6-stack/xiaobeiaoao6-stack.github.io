@@ -3,19 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xiaobei Wang | Engineering Portfolio</title>
+  <meta
+    name="description"
+    content="Xiaobei Wang - University of Toronto Mechanical Engineering portfolio focused on robotics, product design, manufacturing, mechatronics, and AI applications."
+  />
+  <title>Xiaobei Wang | Mechanical Engineering Portfolio</title>
   <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f5f7;
+      --paper: #ffffff;
+      --ink: #161617;
+      --muted: #5f6368;
+      --soft: #e5e5ea;
+      --soft-2: #f0f1f3;
+      --blue: #0a84ff;
+      --green: #1f8a70;
+      --purple: #7e57c2;
+      --orange: #c76b24;
+      --shadow: 0 18px 52px rgba(24, 28, 36, 0.08);
+    }
+
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      background: #f5f5f7;
-      color: #1d1d1f;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Arial, sans-serif;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(245, 245, 247, 0.95) 420px),
+        var(--bg);
+      color: var(--ink);
       line-height: 1.6;
+      text-rendering: optimizeLegibility;
     }
 
     a {
@@ -23,366 +48,888 @@
       text-decoration: none;
     }
 
-    nav {
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(18px);
-      background: rgba(245, 245, 247, 0.78);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      z-index: 20;
+      border-bottom: 1px solid rgba(22, 22, 23, 0.08);
+      background: rgba(245, 245, 247, 0.82);
+      backdrop-filter: saturate(180%) blur(18px);
     }
 
-    .nav-inner {
-      max-width: 1100px;
-      margin: auto;
-      padding: 14px 22px;
+    .nav {
+      width: min(1120px, calc(100% - 40px));
+      min-height: 56px;
+      margin: 0 auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      font-size: 14px;
+      justify-content: space-between;
+      gap: 18px;
     }
 
-    .logo {
+    .brand {
+      font-size: 15px;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
-      color: #555;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      transition: color 160ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    main {
+      overflow: hidden;
     }
 
     .hero {
-      max-width: 1100px;
-      margin: auto;
-      padding: 96px 22px 70px;
-      text-align: center;
+      width: min(1120px, calc(100% - 40px));
+      min-height: calc(100vh - 56px);
+      margin: 0 auto;
+      padding: 78px 0 42px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      align-items: center;
+      gap: 34px;
     }
 
-    .tag {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: #ffffff;
-      color: #555;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      width: fit-content;
+      margin-bottom: 22px;
+      padding: 7px 10px;
+      border: 1px solid rgba(22, 22, 23, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--muted);
       font-size: 14px;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
-      margin-bottom: 24px;
-    }
-
-    h1 {
-      font-size: clamp(44px, 8vw, 88px);
-      line-height: 0.95;
-      letter-spacing: -0.07em;
-      margin-bottom: 24px;
-    }
-
-    .hero p {
-      max-width: 730px;
-      margin: auto;
-      color: #555;
-      font-size: clamp(18px, 2vw, 23px);
-    }
-
-    .buttons {
-      margin-top: 34px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 13px 20px;
-      border-radius: 999px;
       font-weight: 600;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(31, 138, 112, 0.13);
+    }
+
+    .hero h1 {
+      max-width: 880px;
+      margin: 0;
+      font-size: clamp(54px, 9vw, 104px);
+      line-height: 0.93;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.4vw, 24px);
+      line-height: 1.45;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 18px;
+      border: 1px solid rgba(22, 22, 23, 0.12);
+      border-radius: 8px;
+      background: var(--paper);
+      color: var(--ink);
       font-size: 15px;
-      transition: 0.2s ease;
+      font-weight: 700;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
 
-    .btn.primary {
-      background: #1d1d1f;
-      color: white;
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(22, 22, 23, 0.24);
     }
 
-    .btn.secondary {
-      background: white;
-      color: #1d1d1f;
-      border: 1px solid rgba(0,0,0,0.08);
+    .button.primary {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fff;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
+    .button.primary:hover {
+      background: #2a2a2d;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 220px;
+      border-top: 1px solid rgba(22, 22, 23, 0.1);
+      border-bottom: 1px solid rgba(22, 22, 23, 0.1);
+      background:
+        linear-gradient(90deg, rgba(22, 22, 23, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(22, 22, 23, 0.08) 1px, transparent 1px);
+      background-size: 56px 56px;
+      overflow: hidden;
+    }
+
+    .system-map {
+      position: absolute;
+      inset: 20px 0;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(132px, 1fr));
+      align-items: center;
+      gap: 14px;
+    }
+
+    .system-node {
+      min-height: 104px;
+      padding: 15px;
+      border: 1px solid rgba(22, 22, 23, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 12px 34px rgba(24, 28, 36, 0.07);
+    }
+
+    .system-node span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .system-node strong {
+      display: block;
+      margin-top: 10px;
+      font-size: 20px;
+      line-height: 1.15;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 18px 0 0;
+      border-top: 2px solid var(--ink);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
     }
 
     section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 54px 22px;
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0;
     }
 
-    .section-title {
-      font-size: clamp(30px, 4vw, 52px);
-      letter-spacing: -0.04em;
-      margin-bottom: 18px;
-    }
-
-    .section-intro {
-      max-width: 760px;
-      color: #666;
-      font-size: 18px;
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(280px, 1fr);
+      gap: 34px;
+      align-items: end;
       margin-bottom: 30px;
     }
 
-    .grid {
+    .kicker {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .section-head p,
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .project-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
+      gap: 16px;
     }
 
-    .card {
-      background: white;
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(0,0,0,0.05);
+    .project-card,
+    .experience-card,
+    .skill-group,
+    .contact-panel {
+      border: 1px solid rgba(22, 22, 23, 0.09);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
     }
 
-    .card.large {
+    .project-card {
+      min-height: 300px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .project-card.featured {
       grid-column: span 2;
+      min-height: 330px;
+      background:
+        linear-gradient(135deg, rgba(10, 132, 255, 0.1), rgba(31, 138, 112, 0.09)),
+        rgba(255, 255, 255, 0.95);
     }
 
-    .card h3 {
-      font-size: 24px;
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
+    .card-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
-    .card .meta {
+    .dot {
+      width: 10px;
+      height: 10px;
+      flex: 0 0 10px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .dot.green {
+      background: var(--green);
+    }
+
+    .dot.purple {
+      background: var(--purple);
+    }
+
+    .dot.orange {
+      background: var(--orange);
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .project-card p,
+    .experience-card p,
+    .contact-panel p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 9px;
+      border: 1px solid rgba(22, 22, 23, 0.08);
+      border-radius: 8px;
+      background: var(--soft-2);
+      color: #3f4248;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .experience-card {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: minmax(210px, 0.38fr) minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .role-meta {
+      color: var(--muted);
       font-size: 14px;
-      color: #888;
+      font-weight: 650;
+    }
+
+    .role-meta span {
+      display: block;
+      margin-top: 6px;
+    }
+
+    .impact-list {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .impact-list li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .impact-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .skill-group {
+      padding: 22px;
+    }
+
+    .skill-group h3 {
+      font-size: 19px;
       margin-bottom: 14px;
     }
 
-    .card p {
-      color: #555;
-      margin-bottom: 16px;
-    }
-
-    .chips {
+    .skill-list {
       display: flex;
-      gap: 8px;
       flex-wrap: wrap;
+      gap: 8px;
     }
 
-    .chip {
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: #f0f0f2;
-      color: #555;
+    .skill-list span {
+      padding: 6px 9px;
+      border-radius: 8px;
+      background: var(--soft-2);
+      color: #3f4248;
       font-size: 13px;
+      font-weight: 650;
     }
 
-    .skills {
+    .contact-panel {
+      padding: 32px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
     }
 
-    .skill-box {
-      background: white;
-      padding: 20px;
-      border-radius: 22px;
-      text-align: center;
-      font-weight: 600;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+    .email {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
     }
 
     footer {
-      max-width: 1100px;
-      margin: auto;
-      padding: 54px 22px 70px;
-      color: #777;
-      text-align: center;
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 22px 0 42px;
+      border-top: 1px solid rgba(22, 22, 23, 0.1);
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 900px) {
+      .hero {
+        min-height: auto;
+        padding-top: 64px;
+      }
+
+      .system-map {
+        min-width: 780px;
+      }
+
+      .hero-visual {
+        overflow-x: auto;
+      }
+
+      .hero-metrics,
+      .skill-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head,
+      .experience-card,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav {
+        width: min(100% - 28px, 1120px);
+      }
+
       .nav-links {
         display: none;
       }
 
-      .grid, .skills {
+      .hero,
+      section,
+      footer {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .hero h1 {
+        font-size: clamp(46px, 16vw, 66px);
+      }
+
+      .project-grid,
+      .hero-metrics,
+      .skill-grid {
         grid-template-columns: 1fr;
       }
 
-      .card.large {
+      .project-card.featured {
         grid-column: span 1;
       }
 
-      .hero {
-        padding-top: 72px;
+      .project-card,
+      .experience-card,
+      .skill-group,
+      .contact-panel {
+        padding: 20px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .actions,
+      .contact-actions {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-inner">
-      <div class="logo">Xiaobei Wang</div>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top">Xiaobei Wang</a>
       <div class="nav-links">
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
-    </div>
-  </nav>
-
-  <header class="hero">
-    <div class="tag">Mechanical Engineering · Robotics · Product Design</div>
-    <h1>Engineering ideas into working systems.</h1>
-    <p>
-      I am a Mechanical Engineering student at the University of Toronto with hands-on experience in robotics, CAD design, 3D printing, prototyping, and manufacturing systems.
-    </p>
-    <div class="buttons">
-      <a class="btn primary" href="#projects">View Projects</a>
-      <a class="btn secondary" href="mailto:kita.wang@mail.utoronto.ca">Contact Me</a>
-    </div>
+    </nav>
   </header>
 
-  <section id="projects">
-    <h2 class="section-title">Selected Projects</h2>
-    <p class="section-intro">
-      A collection of engineering projects focused on robotics, mechatronics, mechanical design, embedded systems, and real-world prototyping.
-    </p>
-
-    <div class="grid">
-      <div class="card large">
-        <h3>Blue Sky Solar Racing Capstone</h3>
-        <div class="meta">APS490Y · Solar Vehicle Aerodynamic Fin System</div>
-        <p>
-          Working on the design and analysis of a deployable aerodynamic fin mechanism for the BSSR Gen12 solar car. The project involves CAD assembly, airfoil selection, aerodynamic analysis, mechanism design, and potential physical validation.
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">University of Toronto · Mechanical Engineering</div>
+        <h1 id="hero-title">Xiaobei Wang</h1>
+        <p class="hero-copy">
+          Mechanical engineering graduate building hands-on systems across robotics, product design,
+          manufacturing, mechatronics, and AI applications.
         </p>
-        <div class="chips">
-          <span class="chip">CAD</span>
-          <span class="chip">Aerodynamics</span>
-          <span class="chip">Mechanism Design</span>
-          <span class="chip">Composite Materials</span>
+        <div class="actions" aria-label="Primary actions">
+          <a class="button primary" href="#projects">View Projects</a>
+          <a class="button" href="mailto:kita.wang@mail.utoronto.ca">Email</a>
+          <a class="button" href="#" aria-label="LinkedIn placeholder">LinkedIn</a>
+          <a class="button" href="#" aria-label="Resume placeholder">Resume</a>
         </div>
       </div>
 
-      <div class="card">
-        <h3>Autonomous Rover System</h3>
-        <div class="meta">MIE444 / Mechatronics</div>
-        <p>
-          Built an autonomous rover system integrating object recognition, navigation logic, localization, and competition-based task execution.
-        </p>
-        <div class="chips">
-          <span class="chip">ROS2</span>
-          <span class="chip">YOLO</span>
-          <span class="chip">Python</span>
-          <span class="chip">C++</span>
+      <div class="hero-visual" aria-label="Engineering focus areas">
+        <div class="system-map">
+          <div class="system-node">
+            <span>CAD</span>
+            <strong>Mechanical Design</strong>
+          </div>
+          <div class="system-node">
+            <span>Build</span>
+            <strong>Prototype Testing</strong>
+          </div>
+          <div class="system-node">
+            <span>Control</span>
+            <strong>Robotics & Sensors</strong>
+          </div>
+          <div class="system-node">
+            <span>Data</span>
+            <strong>Python & ML</strong>
+          </div>
+          <div class="system-node">
+            <span>Launch</span>
+            <strong>Manufacturing NPI</strong>
+          </div>
         </div>
       </div>
 
-      <div class="card">
-        <h3>Bionic Robotic Hand</h3>
-        <div class="meta">Independent Mechanical Design</div>
-        <p>
-          Independently designed and prototyped a robotic hand upgrade to add an additional degree of freedom for grasping functionality using SolidWorks and 3D printing.
-        </p>
-        <div class="chips">
-          <span class="chip">SolidWorks</span>
-          <span class="chip">3D Printing</span>
-          <span class="chip">Assembly</span>
-          <span class="chip">Robotics</span>
+      <div class="hero-metrics" aria-label="Resume highlights">
+        <div class="metric">
+          <strong>2+ yrs</strong>
+          <span>Hands-on engineering internship experience</span>
+        </div>
+        <div class="metric">
+          <strong>18%</strong>
+          <span>Robotic arm positioning accuracy improvement</span>
+        </div>
+        <div class="metric">
+          <strong>500+</strong>
+          <span>Auto-parts listings automated with Python</span>
+        </div>
+        <div class="metric">
+          <strong>CSWA</strong>
+          <span>Certified SolidWorks CAD Design Associate</span>
         </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Arduino Rover & LIDAR Interface</h3>
-        <div class="meta">Embedded Systems / Hardware</div>
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Selected Projects</p>
+          <h2 id="projects-title">Built across mechanics, code, and hardware.</h2>
+        </div>
         <p>
-          Developed Arduino-based rover controls, Bluetooth communication, servo actuation, ultrasonic sensing, and LIDAR visualization workflows.
+          Projects combine CAD, fabrication, embedded systems, ROS2, perception, and validation.
+          The common thread is turning an idea into a working physical system.
         </p>
-        <div class="chips">
-          <span class="chip">Arduino</span>
-          <span class="chip">LIDAR</span>
-          <span class="chip">Bluetooth</span>
-          <span class="chip">Sensors</span>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card featured">
+          <div>
+            <div class="card-topline">
+              <span>Capstone · Solar Vehicle</span>
+              <span class="dot green"></span>
+            </div>
+            <h3>Blue Sky Solar Racing Capstone</h3>
+            <p>
+              Designed and analyzed a deployable aerodynamic fin mechanism for the BSSR Gen12 solar car,
+              including CAD assemblies, airfoil selection, mechanism design, aerodynamic reasoning,
+              and physical validation planning.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">SolidWorks</span>
+            <span class="tag">Aerodynamics</span>
+            <span class="tag">Mechanism Design</span>
+            <span class="tag">Composite Materials</span>
+            <span class="tag">Validation Planning</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <div class="card-topline">
+              <span>Robotics · Perception</span>
+              <span class="dot"></span>
+            </div>
+            <h3>Autonomous Rover System</h3>
+            <p>
+              Developed a ROS2-based rover workflow with navigation, object detection, localization,
+              and competition task execution. Integrated YOLO perception with mobile robot behavior.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">ROS2</span>
+            <span class="tag">YOLO</span>
+            <span class="tag">Navigation</span>
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <div class="card-topline">
+              <span>Mechanical Design · Hand</span>
+              <span class="dot purple"></span>
+            </div>
+            <h3>Bionic Robotic Hand</h3>
+            <p>
+              Designed, 3D printed, and assembled a robotic hand upgrade that added an extra grasping
+              degree of freedom, focusing on compact mechanism layout and practical assembly.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">SolidWorks</span>
+            <span class="tag">3D Printing</span>
+            <span class="tag">Mechanical Assembly</span>
+            <span class="tag">Robotic Mechanisms</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <div class="card-topline">
+              <span>Embedded · LIDAR</span>
+              <span class="dot orange"></span>
+            </div>
+            <h3>Arduino Rover & LIDAR Interface</h3>
+            <p>
+              Built an Arduino rover with Bluetooth control, motor drivers, sensor integration,
+              and a Python desktop interface for real-time 360-degree LIDAR visualization.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">Arduino</span>
+            <span class="tag">RPLIDAR</span>
+            <span class="tag">Bluetooth</span>
+            <span class="tag">Sensors</span>
+            <span class="tag">Python UI</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <div class="card-topline">
+              <span>AI · Computer Vision</span>
+              <span class="dot green"></span>
+            </div>
+            <h3>Depth Estimation Mini Project</h3>
+            <p>
+              Applied machine learning and computer vision methods to monocular depth estimation,
+              using training data and custom phone-captured validation images.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Python</span>
+            <span class="tag">Data Analysis</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Experience</p>
+          <h2 id="experience-title">Manufacturing-minded engineering.</h2>
+        </div>
+        <p>
+          Internship work spans NPI, drone manufacturing, automotive R&D, data automation,
+          engineering documentation, and hands-on prototype troubleshooting.
+        </p>
+      </div>
+
+      <div class="experience-list">
+        <article class="experience-card">
+          <div class="role-meta">
+            NPI Workshop Intern
+            <span>Shenzhen HighGreat Innovation Technology</span>
+            <span>Sep 2024 - Sep 2025</span>
+          </div>
+          <div>
+            <h3>Drone manufacturing, automated assembly, and mechanical prototyping</h3>
+            <p>
+              Supported new product introduction work in a hands-on manufacturing environment for
+              drone and electromechanical systems.
+            </p>
+            <ul class="impact-list">
+              <li>Created SolidWorks models, 3D printed prototypes, mechanical assemblies, BOMs, and engineering documentation.</li>
+              <li>Worked on custom automated assembly lines, sensor selection, microcontroller-based control, and production hardware testing.</li>
+              <li>Improved multi-axis robotic arm positioning accuracy by 18% through kinematic tuning and mechanical optimization.</li>
+              <li>Contributed to a robotic hand upgrade and gained direct exposure to drone assembly line processes.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <div class="role-meta">
+            R&D Intern
+            <span>BMW Brilliance Automotive</span>
+            <span>Jun 2023 - Sep 2023</span>
+          </div>
+          <div>
+            <h3>Automotive development and cross-functional coordination</h3>
+            <p>
+              Supported six vehicle-model engineering projects across material selection,
+              component design reviews, prototype testing, and internal optimization research.
+            </p>
+            <ul class="impact-list">
+              <li>Coordinated technical workshops with 10+ departments including Design, Manufacturing, Quality, and Testing.</li>
+              <li>Built road-efficiency analysis models for internal route optimization work.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <div class="role-meta">
+            Research & Marketing Intern
+            <span>Shoxtec</span>
+            <span>May 2024 - Sep 2024</span>
+          </div>
+          <div>
+            <h3>Python data automation for automotive parts</h3>
+            <p>
+              Automated recurring data workflows and created comparison datasets to support
+              product updates, pricing analysis, and demand trend review.
+            </p>
+            <ul class="impact-list">
+              <li>Automated weekly processing for 500+ auto-parts listings using Python.</li>
+              <li>Improved data consistency for product comparison and engineering decision support.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Skills</p>
+          <h2 id="skills-title">Practical tools for physical products.</h2>
+        </div>
+        <p>
+          Core strengths sit at the intersection of CAD design, manufacturing, embedded systems,
+          robotics, and applied machine learning.
+        </p>
+      </div>
+
+      <div class="skill-grid">
+        <div class="skill-group">
+          <h3>Mechanical</h3>
+          <div class="skill-list">
+            <span>SolidWorks</span>
+            <span>CAD Design</span>
+            <span>3D Printing</span>
+            <span>Product Design</span>
+            <span>Manufacturing</span>
+            <span>Mechanical Assembly</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Robotics</h3>
+          <div class="skill-list">
+            <span>ROS2</span>
+            <span>Arduino</span>
+            <span>Mechatronics</span>
+            <span>LIDAR</span>
+            <span>Sensors</span>
+            <span>Navigation</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Programming</h3>
+          <div class="skill-list">
+            <span>Python</span>
+            <span>C++</span>
+            <span>MATLAB</span>
+            <span>Machine Learning</span>
+            <span>Computer Vision</span>
+            <span>Git</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Professional</h3>
+          <div class="skill-list">
+            <span>CSWA Certified</span>
+            <span>BOMs</span>
+            <span>Test Plans</span>
+            <span>Root-Cause Analysis</span>
+            <span>English</span>
+            <span>Mandarin</span>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Depth Estimation Mini Project</h3>
-        <div class="meta">APS360 / Machine Learning</div>
-        <p>
-          Applied deep learning concepts to depth estimation using training data and custom phone-captured validation images.
-        </p>
-        <div class="chips">
-          <span class="chip">Deep Learning</span>
-          <span class="chip">Python</span>
-          <span class="chip">Computer Vision</span>
-          <span class="chip">Data Analysis</span>
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="contact-panel">
+        <div>
+          <p class="kicker">Contact</p>
+          <h2 id="contact-title">Let us build something useful.</h2>
+          <p class="lead">
+            Interested in engineering opportunities across robotics, mechanical design,
+            manufacturing, product development, mechatronics, and AI-enabled hardware.
+          </p>
+          <p>
+            <a class="email" href="mailto:kita.wang@mail.utoronto.ca">kita.wang@mail.utoronto.ca</a>
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:kita.wang@mail.utoronto.ca">Email</a>
+          <a class="button" href="#" aria-label="LinkedIn placeholder">LinkedIn</a>
+          <a class="button" href="#" aria-label="Resume placeholder">Resume</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <h2 class="section-title">Experience</h2>
-    <div class="card">
-      <h3>NPI Intern · Shenzhen HighGreat Innovation Technology</h3>
-      <div class="meta">Drone Manufacturing · Mechanical Prototyping · Product Development</div>
-      <p>
-        Worked in the NPI department on mechanical design, prototyping, assembly, and manufacturing support. Tasks included SolidWorks modeling, 3D printed prototypes, device assembly, robotic hand upgrades, and exposure to drone assembly line processes.
-      </p>
-      <div class="chips">
-        <span class="chip">NPI</span>
-        <span class="chip">Drone Manufacturing</span>
-        <span class="chip">SolidWorks</span>
-        <span class="chip">3D Printing</span>
-        <span class="chip">Mechanical Assembly</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills">
-      <div class="skill-box">SolidWorks</div>
-      <div class="skill-box">3D Printing</div>
-      <div class="skill-box">Arduino</div>
-      <div class="skill-box">Python</div>
-      <div class="skill-box">MATLAB</div>
-      <div class="skill-box">ROS2</div>
-      <div class="skill-box">C++</div>
-      <div class="skill-box">CAD Design</div>
-      <div class="skill-box">Mechatronics</div>
-      <div class="skill-box">Machine Learning</div>
-      <div class="skill-box">Manufacturing</div>
-      <div class="skill-box">Product Design</div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="card">
-      <h3>Let’s connect.</h3>
-      <p>
-        I am interested in opportunities related to robotics, mechanical design, product development, manufacturing, and engineering operations.
-      </p>
-      <div class="buttons" style="justify-content: flex-start; margin-top: 20px;">
-        <a class="btn primary" href="mailto:kita.wang@mail.utoronto.ca">Email Me</a>
-        <a class="btn secondary" href="#">LinkedIn</a>
-        <a class="btn secondary" href="#">Resume</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    © 2026 Xiaobei Wang. Built with GitHub Pages.
+    <span>© 2026 Xiaobei Wang</span>
+    <span>University of Toronto · Mechanical Engineering</span>
   </footer>
 </body>
 </html>
