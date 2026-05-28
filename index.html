@@ -1,94 +1,388 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Xiaobei Wang</title>
-    <style>
-        body {
-            font-family: Arial;
-            max-width: 900px;
-            margin: auto;
-            padding: 40px;
-            background: #f5f5f5;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xiaobei Wang | Engineering Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.6;
+    }
 
-        h1 {
-            font-size: 42px;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        h2 {
-            margin-top: 40px;
-        }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(245, 245, 247, 0.78);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
 
-        p {
-            line-height: 1.7;
-        }
+    .nav-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 14px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
 
-        .project {
-            margin-bottom: 20px;
-            padding: 20px;
-            background: #fafafa;
-            border-radius: 15px;
-        }
-    </style>
+    .logo {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      color: #555;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+      padding: 96px 22px 70px;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #555;
+      font-size: 14px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 8vw, 88px);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      max-width: 730px;
+      margin: auto;
+      color: #555;
+      font-size: clamp(18px, 2vw, 23px);
+    }
+
+    .buttons {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
+
+    .btn.primary {
+      background: #1d1d1f;
+      color: white;
+    }
+
+    .btn.secondary {
+      background: white;
+      color: #1d1d1f;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 54px 22px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 52px);
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .card.large {
+      grid-column: span 2;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .card .meta {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #f0f0f2;
+      color: #555;
+      font-size: 13px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .skill-box {
+      background: white;
+      padding: 20px;
+      border-radius: 22px;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: auto;
+      padding: 54px 22px 70px;
+      color: #777;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .grid, .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .card.large {
+        grid-column: span 1;
+      }
+
+      .hero {
+        padding-top: 72px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <nav>
+    <div class="nav-inner">
+      <div class="logo">Xiaobei Wang</div>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<div class="card">
+  <header class="hero">
+    <div class="tag">Mechanical Engineering · Robotics · Product Design</div>
+    <h1>Engineering ideas into working systems.</h1>
+    <p>
+      I am a Mechanical Engineering student at the University of Toronto with hands-on experience in robotics, CAD design, 3D printing, prototyping, and manufacturing systems.
+    </p>
+    <div class="buttons">
+      <a class="btn primary" href="#projects">View Projects</a>
+      <a class="btn secondary" href="mailto:kita.wang@mail.utoronto.ca">Contact Me</a>
+    </div>
+  </header>
 
-<h1>Xiaobei Wang</h1>
+  <section id="projects">
+    <h2 class="section-title">Selected Projects</h2>
+    <p class="section-intro">
+      A collection of engineering projects focused on robotics, mechatronics, mechanical design, embedded systems, and real-world prototyping.
+    </p>
 
-<p>
-Mechanical Engineering Student at University of Toronto
-</p>
+    <div class="grid">
+      <div class="card large">
+        <h3>Blue Sky Solar Racing Capstone</h3>
+        <div class="meta">APS490Y · Solar Vehicle Aerodynamic Fin System</div>
+        <p>
+          Working on the design and analysis of a deployable aerodynamic fin mechanism for the BSSR Gen12 solar car. The project involves CAD assembly, airfoil selection, aerodynamic analysis, mechanism design, and potential physical validation.
+        </p>
+        <div class="chips">
+          <span class="chip">CAD</span>
+          <span class="chip">Aerodynamics</span>
+          <span class="chip">Mechanism Design</span>
+          <span class="chip">Composite Materials</span>
+        </div>
+      </div>
 
-<p>
-Interested in Robotics, Product Design, Manufacturing, and AI Applications.
-</p>
+      <div class="card">
+        <h3>Autonomous Rover System</h3>
+        <div class="meta">MIE444 / Mechatronics</div>
+        <p>
+          Built an autonomous rover system integrating object recognition, navigation logic, localization, and competition-based task execution.
+        </p>
+        <div class="chips">
+          <span class="chip">ROS2</span>
+          <span class="chip">YOLO</span>
+          <span class="chip">Python</span>
+          <span class="chip">C++</span>
+        </div>
+      </div>
 
-<h2>Projects</h2>
+      <div class="card">
+        <h3>Bionic Robotic Hand</h3>
+        <div class="meta">Independent Mechanical Design</div>
+        <p>
+          Independently designed and prototyped a robotic hand upgrade to add an additional degree of freedom for grasping functionality using SolidWorks and 3D printing.
+        </p>
+        <div class="chips">
+          <span class="chip">SolidWorks</span>
+          <span class="chip">3D Printing</span>
+          <span class="chip">Assembly</span>
+          <span class="chip">Robotics</span>
+        </div>
+      </div>
 
-<div class="project">
-<h3>Autonomous Rover</h3>
-<p>
-ROS2, YOLO object detection, autonomous navigation.
-</p>
-</div>
+      <div class="card">
+        <h3>Arduino Rover & LIDAR Interface</h3>
+        <div class="meta">Embedded Systems / Hardware</div>
+        <p>
+          Developed Arduino-based rover controls, Bluetooth communication, servo actuation, ultrasonic sensing, and LIDAR visualization workflows.
+        </p>
+        <div class="chips">
+          <span class="chip">Arduino</span>
+          <span class="chip">LIDAR</span>
+          <span class="chip">Bluetooth</span>
+          <span class="chip">Sensors</span>
+        </div>
+      </div>
 
-<div class="project">
-<h3>Bionic Robotic Hand</h3>
-<p>
-Designed and prototyped a robotic hand using SolidWorks and 3D printing.
-</p>
-</div>
+      <div class="card">
+        <h3>Depth Estimation Mini Project</h3>
+        <div class="meta">APS360 / Machine Learning</div>
+        <p>
+          Applied deep learning concepts to depth estimation using training data and custom phone-captured validation images.
+        </p>
+        <div class="chips">
+          <span class="chip">Deep Learning</span>
+          <span class="chip">Python</span>
+          <span class="chip">Computer Vision</span>
+          <span class="chip">Data Analysis</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="project">
-<h3>Drone NPI Internship</h3>
-<p>
-Worked on product prototyping, CAD modeling, and drone manufacturing.
-</p>
-</div>
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="card">
+      <h3>NPI Intern · Shenzhen HighGreat Innovation Technology</h3>
+      <div class="meta">Drone Manufacturing · Mechanical Prototyping · Product Development</div>
+      <p>
+        Worked in the NPI department on mechanical design, prototyping, assembly, and manufacturing support. Tasks included SolidWorks modeling, 3D printed prototypes, device assembly, robotic hand upgrades, and exposure to drone assembly line processes.
+      </p>
+      <div class="chips">
+        <span class="chip">NPI</span>
+        <span class="chip">Drone Manufacturing</span>
+        <span class="chip">SolidWorks</span>
+        <span class="chip">3D Printing</span>
+        <span class="chip">Mechanical Assembly</span>
+      </div>
+    </div>
+  </section>
 
-<h2>Skills</h2>
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills">
+      <div class="skill-box">SolidWorks</div>
+      <div class="skill-box">3D Printing</div>
+      <div class="skill-box">Arduino</div>
+      <div class="skill-box">Python</div>
+      <div class="skill-box">MATLAB</div>
+      <div class="skill-box">ROS2</div>
+      <div class="skill-box">C++</div>
+      <div class="skill-box">CAD Design</div>
+      <div class="skill-box">Mechatronics</div>
+      <div class="skill-box">Machine Learning</div>
+      <div class="skill-box">Manufacturing</div>
+      <div class="skill-box">Product Design</div>
+    </div>
+  </section>
 
-<p>
-SolidWorks | Arduino | ROS2 | Python | MATLAB | 3D Printing | CAD
-</p>
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="card">
+      <h3>Let’s connect.</h3>
+      <p>
+        I am interested in opportunities related to robotics, mechanical design, product development, manufacturing, and engineering operations.
+      </p>
+      <div class="buttons" style="justify-content: flex-start; margin-top: 20px;">
+        <a class="btn primary" href="mailto:kita.wang@mail.utoronto.ca">Email Me</a>
+        <a class="btn secondary" href="#">LinkedIn</a>
+        <a class="btn secondary" href="#">Resume</a>
+      </div>
+    </div>
+  </section>
 
-<h2>Contact</h2>
-
-<p>
-Email: your@email.com
-</p>
-
-</div>
-
+  <footer>
+    © 2026 Xiaobei Wang. Built with GitHub Pages.
+  </footer>
 </body>
 </html>
